@@ -24,9 +24,6 @@ app.use("/api/user",userRouter)
 app.use("/api/chat",chatRoutes)
 app.use("/api/message", messageRoutes);
 
-app.get("/", (req: Request, res: Response) => {
-    res.send("good by world")
-})
 
 
 const server = app.listen(port, () => {
@@ -71,5 +68,9 @@ io.on("connection", (socket: any) => {
         console.log("USER DISCONNECTED")
         socket.leave(userData._id)
     });
+})
+
+app.get("/", (req: Request, res: Response) => {
+    res.send("good by world")
 })
 
