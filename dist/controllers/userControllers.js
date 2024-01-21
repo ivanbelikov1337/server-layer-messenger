@@ -30,10 +30,10 @@ exports.allUsers = (0, express_async_handler_1.default)((req, res) => __awaiter(
 }));
 
 exports.upDateUser = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { email, idAppwrite } = req.body;
-    const user = yield userModel_1.default.updateOne({ email }, { idAppwrite });
+    const { _id, idAppwrite } = req.body;
+    const user = yield userModel_1.default.findByIdAndUpdate(_id, { idAppwrite: idAppwrite });
     if (user) {
-        res.send(200);
+        res.send(200).json(idAppwrite);
     }
     else {
         res.status(400);
