@@ -28,6 +28,19 @@ exports.allUsers = (0, express_async_handler_1.default)((req, res) => __awaiter(
     const users = yield userModel_1.default.find(keyword);
     res.send(users);
 }));
+
+exports.upDateUser = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email, idAppwrite } = req.body;
+    const user = yield userModel_1.default.updateOne({ email }, { idAppwrite });
+    if (user) {
+        res.send(200);
+    }
+    else {
+        res.status(400);
+        throw new Error("idAppwrite not updated");
+    }
+}));
+
 exports.registerUser = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { name, email, password, pic,idAppwrite} = req.body;
     if (!name || !email || !password || !idAppwrite) {
