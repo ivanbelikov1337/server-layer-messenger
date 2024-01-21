@@ -29,6 +29,11 @@ const userSchema = new Schema({
         type: "String",
         required: true
     },
+    idAppwrite: {
+            type: "String",
+            unique: true,
+            required: true
+    },
     pic: {
         type: "String",
         required: true,
