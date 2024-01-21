@@ -29,8 +29,8 @@ exports.allUsers = (0, express_async_handler_1.default)((req, res) => __awaiter(
     res.send(users);
 }));
 exports.registerUser = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { name, email, password, pic } = req.body;
-    if (!name || !email || !password) {
+    const { name, email, password, pic,idAppwrite} = req.body;
+    if (!name || !email || !password,|| !idAppwrite) {
         res.status(400);
         throw new Error("Please Enter all the Fields");
     }
@@ -43,6 +43,7 @@ exports.registerUser = (0, express_async_handler_1.default)((req, res) => __awai
         name,
         email,
         password,
+        idAppwrite,
         pic,
     });
     if (user) {
@@ -69,6 +70,7 @@ exports.authUser = (0, express_async_handler_1.default)((req, res) => __awaiter(
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
+            idAppwrite:user.idAppwrite,
             pic: user.pic,
             token: (0, generateToken_1.generateToken)(user._id),
         });
