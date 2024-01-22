@@ -16,6 +16,7 @@ exports.authUser = exports.registerUser = exports.allUsers = void 0;
 const express_async_handler_1 = __importDefault(require("express-async-handler"));
 const generateToken_1 = require("../config/generateToken");
 const userModel_1 = __importDefault(require("../models/userModel"));
+const db_1 = require("../config/db");
 exports.allUsers = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const keyword = req.query.search
         ? {
