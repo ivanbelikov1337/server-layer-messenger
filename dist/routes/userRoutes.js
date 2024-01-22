@@ -10,5 +10,5 @@ const authMiddleware_1 = require("../middleware/authMiddleware");
 exports.userRouter = express_1.default.Router();
 exports.userRouter.route("/").get(authMiddleware_1.protect, userControllers_1.allUsers);
 exports.userRouter.route("/").post(userControllers_1.registerUser);
-exports.userRouter.route("/").put(userControllers_1.upDateUser);
+exports.userRouter.put("/update", userControllers_1.updateUser);
 exports.userRouter.post("/login", userControllers_1.authUser);
