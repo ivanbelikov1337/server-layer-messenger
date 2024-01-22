@@ -43,10 +43,10 @@ exports.allUsers = (0, express_async_handler_1.default)((req, res) => __awaiter(
 // }));
 
 exports.updateUser = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { _id, id } = req.body;
+    const { _id, idAppwrite } = req.body;
     const filter = { _id: _id };
     yield (0, db_1.connectDB)();
-    const user = yield userModel_1.default.findOneAndUpdate(filter, { id: id }, { new: true });
+    const user = yield userModel_1.default.findOneAndUpdate(filter, { idAppwrite: idAppwrite }, { new: true });
     yield user.save();
     console.log(user);
     if (user) {
