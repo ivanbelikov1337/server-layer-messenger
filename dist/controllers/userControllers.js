@@ -30,19 +30,19 @@ exports.allUsers = (0, express_async_handler_1.default)((req, res) => __awaiter(
     res.send(users);
 }));
 
-exports.upDateUser = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { _id, idAppwrite } = req.body;
-    const user = yield userModel_1.default.findByIdAndUpdate(_id, { idAppwrite: idAppwrite });
-    if (user) {
-        res.send(200).json(idAppwrite);
-    }
-    else {
-        res.status(400);
-        throw new Error("idAppwrite not updated");
-    }
-}));
+// exports.upDateUser111 = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//     const { _id, idAppwrite } = req.body;
+//     const user = yield userModel_1.default.findByIdAndUpdate(_id, { idAppwrite: idAppwrite });
+//     if (user) {
+//         res.send(200).json(idAppwrite);
+//     }
+//     else {
+//         res.status(400);
+//         throw new Error("idAppwrite not updated");
+//     }
+// }));
 
-exports.upDateUser = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.updateUser = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { _id, id } = req.body;
     const filter = { _id: _id };
     yield (0, db_1.connectDB)();
