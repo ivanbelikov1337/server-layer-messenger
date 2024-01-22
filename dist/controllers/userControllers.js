@@ -41,7 +41,7 @@ exports.upDateUser = (0, express_async_handler_1.default)((req, res) => __awaite
     }
 }));
 
-exports.updateUser = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.upDateUser = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { _id, id } = req.body;
     const filter = { _id: _id };
     yield (0, db_1.connectDB)();
