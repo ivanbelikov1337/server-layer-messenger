@@ -58,10 +58,10 @@ io.on("connection", (socket) => {
     });
 });
 app.put("/api/user/update", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { _id, id } = req.body;
+    const { _id, idAppwrite } = req.body;
     const filter = { _id: _id };
     yield (0, db_1.connectDB)();
-    const user = yield userModel_1.default.findOneAndUpdate(filter, { id: id }, { new: true });
+    const user = yield userModel_1.default.findOneAndUpdate(filter, { idAppwrite: idAppwrite }, { new: true });
     yield user.save();
     if (user) {
         res.json(user);
