@@ -10,6 +10,7 @@ const userRoutes_1 = require("./routes/userRoutes");
 const cors_1 = __importDefault(require("cors"));
 const chatRoutes_1 = require("./routes/chatRoutes");
 const messageRoutes_1 = require("./routes/messageRoutes");
+const userModel_1 = __importDefault(require("./models/userModel"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT || 5000;
@@ -56,6 +57,17 @@ io.on("connection", (socket) => {
         socket.leave(userData._id);
     });
 });
+app.put("/api/user/update", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { _id, id } = req.body;
+    const filter = { _id: _id };
+    yield (0, db_1.connectDB)();
+    const user = yield userModel_1.default.findOneAndUpdate(filter, { id: id }, { new: true });
+    yield user.save();
+    if (user) {
+        res.json(user);
+    }
+}));
+
 app.get("/", (req, res) => {
     res.send("good by world");
 });
