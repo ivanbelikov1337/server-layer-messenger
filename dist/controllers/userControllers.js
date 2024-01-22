@@ -47,7 +47,7 @@ exports.updateUser = (0, express_async_handler_1.default)((req, res) => __awaite
     const filter = { _id: _id };
     yield (0, db_1.connectDB)();
     const user = yield userModel_1.default.findOneAndUpdate(filter, { idAppwrite: idAppwrite }, { new: true });
-    yield user.save();
+    // yield user.save();
     console.log(user);
     if (user) {
         res.json(user);
