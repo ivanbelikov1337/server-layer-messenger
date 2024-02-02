@@ -69,5 +69,5 @@ app.put("/api/user/update", (req, res) => __awaiter(void 0, void 0, void 0, func
 }));
 
 app.get("/", (req, res) => {
-    res.send("good by world");
+    res.send("goodbye world");
 });
