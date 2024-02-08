@@ -25,7 +25,10 @@ const server = app.listen(port, () => {
 });
 const io = require("socket.io")(server, {
     pingTimeout: 10000,
-
+    cors: {
+        origin: "https://toxigram.vercel.app",
+        // credentials: true,
+    },
 });
 io.on("connection", (socket) => {
     console.log("Connected to socket.io");
